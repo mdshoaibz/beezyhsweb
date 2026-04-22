@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beezy Home Services – Bengaluru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --gold:#F5C000;
+  --black:#0a0a0a;
+  --white:#f5f5f0;
+  --gray:#888;
+  --light:#f0ede8;
+  --dark:#111;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:56px;
+  background:var(--white);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.08em;color:var(--black);text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);opacity:0.6;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1}
+.nav-book{
+  background:var(--gold);color:var(--black);
+  padding:8px 20px;border-radius:3px;
+  font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  transition:filter 0.2s;
+}
+.nav-book:hover{filter:brightness(1.1)}
+.nav-book::after{content:'↗';font-size:12px}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:80px 40px 60px;
+  background:var(--white);
+  gap:40px;
+}
+.breadcrumb{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:24px}
+.breadcrumb span{color:var(--black)}
+.hero-h1{
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(52px,6vw,84px);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.03em;
+  margin-bottom:24px;
+}
+.hero-h1 .highlight{
+  background:var(--gold);
+  padding:0 8px;
+  display:inline-block;
+  line-height:1.1;
+}
+.hero-sub{font-size:15px;line-height:1.7;color:#555;max-width:420px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-black{
+  background:var(--black);color:var(--white);
+  padding:12px 28px;border-radius:3px;
+  font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:opacity 0.2s;
+}
+.btn-black:hover{opacity:0.8}
+.btn-outline-dark{
+  border:1.5px solid var(--black);color:var(--black);
+  padding:12px 28px;border-radius:3px;
+  font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s;
+}
+.btn-outline-dark:hover{background:var(--black);color:var(--white)}
+.hero-stats{display:flex;gap:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.1)}
+.hstat-val{font-size:28px;font-weight:800;letter-spacing:-0.02em}
+.hstat-label{font-size:11px;color:var(--gray);margin-top:2px;letter-spacing:0.04em}
+
+/* booking widget */
+.booking-widget{
+  background:#fff;
+  border:1.5px solid rgba(0,0,0,0.12);
+  border-radius:8px;
+  padding:28px;
+  box-shadow:0 8px 48px rgba(0,0,0,0.08);
+  max-width:360px;
+  margin-left:auto;
+}
+.widget-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.widget-steps{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray)}
+.widget-live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#22c55e;letter-spacing:0.06em}
+.widget-live::before{content:'';width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.widget-field{margin-bottom:16px}
+.widget-field label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:6px}
+.widget-select{
+  width:100%;border:1.5px solid rgba(0,0,0,0.12);border-radius:5px;
+  padding:11px 14px;font-size:14px;font-family:inherit;
+  color:var(--black);background:#fff;outline:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.widget-date-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.widget-input{
+  width:100%;border:1.5px solid rgba(0,0,0,0.12);border-radius:5px;
+  padding:11px 14px;font-size:13px;font-family:inherit;
+  color:var(--black);background:#fff;outline:none;
+}
+.widget-btn{
+  width:100%;background:var(--gold);color:var(--black);
+  border:none;border-radius:5px;padding:14px;
+  font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:filter 0.2s;margin-top:4px;
+}
+.widget-btn:hover{filter:brightness(1.08)}
+.widget-btn::after{content:'→'}
+
+/* ── TICKER ── */
+.ticker-wrap{
+  background:var(--black);padding:14px 0;
+  overflow:hidden;white-space:nowrap;
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+}
+.ticker-inner{display:inline-flex;animation:ticker 30s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--white);padding:0 40px;
+  display:inline-flex;align-items:center;gap:16px;
+}
+.ticker-dot{color:var(--gold);font-size:8px}
+
+/* ── SERVICES ── */
+.services-section{padding:100px 40px;background:var(--white)}
+.section-label{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.section-slash{font-size:10px;color:var(--gray);margin-bottom:24px;letter-spacing:0.1em}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:48px}
+.services-h2{font-size:clamp(36px,4vw,56px);font-weight:800;line-height:1.05;letter-spacing:-0.025em}
+.services-right{padding-top:8px}
+.services-desc{font-size:14px;line-height:1.7;color:#555;max-width:400px}
+.services-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:auto auto auto;
+  gap:3px;
+}
+.srv-card{
+  position:relative;overflow:hidden;
+  background:#1a1a1a;
+  aspect-ratio:unset;
+  cursor:pointer;
+}
+.srv-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:filter 0.4s,transform 0.4s;display:block}
+.srv-card:hover img{filter:grayscale(60%);transform:scale(1.03)}
+.srv-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;
+}
+.srv-tag{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.srv-name{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.srv-desc{font-size:11px;color:rgba(255,255,255,0.65);line-height:1.5}
+.srv-badge{
+  position:absolute;top:12px;right:12px;
+  background:var(--gold);color:var(--black);
+  font-size:9px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+  padding:4px 9px;border-radius:2px;
+}
+.srv-launch{
+  position:absolute;top:12px;left:12px;
+  font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);
+}
+/* grid layout */
+.srv-card:nth-child(1){grid-column:1;grid-row:1/3;min-height:340px}
+.srv-card:nth-child(2){grid-column:2;grid-row:1;min-height:160px}
+.srv-card:nth-child(3){grid-column:3;grid-row:1;min-height:160px}
+.srv-card:nth-child(4){grid-column:2;grid-row:2;min-height:160px}
+.srv-card:nth-child(5){grid-column:3;grid-row:2;min-height:160px}
+.srv-card:nth-child(6){grid-column:1;grid-row:3;min-height:160px}
+
+/* ── WHY ── */
+.why-section{padding:100px 40px;background:#f8f7f4}
+.why-header{margin-bottom:56px}
+.why-h2{font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;max-width:640px}
+.why-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border-top:1px solid rgba(0,0,0,0.1);
+}
+.why-card{padding:36px 28px;border-right:1px solid rgba(0,0,0,0.1)}
+.why-card:last-child{border-right:none}
+.why-icon{font-size:20px;margin-bottom:16px;color:var(--gray)}
+.why-val{font-size:36px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px}
+.why-title{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.why-desc{font-size:13px;color:#666;line-height:1.6}
+
+/* ── SHIELD ── */
+.shield-section{padding:100px 40px;background:var(--black);color:var(--white)}
+.shield-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto}
+.shield-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.shield-h2{font-size:clamp(40px,5vw,72px);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin-bottom:24px}
+.shield-desc{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55);margin-bottom:32px}
+.shield-price{font-size:clamp(64px,8vw,96px);font-weight:800;color:var(--gold);letter-spacing:-0.04em;line-height:1;margin-bottom:4px}
+.shield-price-sub{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:36px}
+.shield-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:36px}
+.shield-feat{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,0.7)}
+.shield-feat::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* shield form */
+.shield-form-box{
+  background:var(--white);color:var(--black);
+  border-radius:8px;padding:36px;
+  max-width:380px;
+}
+.shield-form-title{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px}
+.shield-form-sub{font-size:12px;color:var(--gray);margin-bottom:24px}
+.sf-field{margin-bottom:14px}
+.sf-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:5px}
+.sf-input{
+  width:100%;border:1.5px solid rgba(0,0,0,0.12);border-radius:5px;
+  padding:11px 14px;font-size:13px;font-family:inherit;
+  color:var(--black);background:#fff;outline:none;
+  transition:border-color 0.2s;
+}
+.sf-input:focus{border-color:var(--black)}
+.sf-btn{
+  width:100%;background:var(--gold);color:var(--black);
+  border:none;border-radius:5px;padding:14px;
+  font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:filter 0.2s;margin-top:6px;
+}
+.sf-btn:hover{filter:brightness(1.08)}
+.sf-btn::after{content:'→'}
+
+/* ── PILOT ── */
+.pilot-section{padding:100px 40px;background:var(--white)}
+.pilot-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.pilot-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);margin-bottom:16px}
+.pilot-h2{font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px}
+.pilot-desc{font-size:14px;line-height:1.7;color:#555;margin-bottom:32px}
+.pilot-perks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.pilot-perks li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#444;line-height:1.5}
+.pilot-perks li::before{content:'→';color:var(--black);font-weight:700;flex-shrink:0}
+
+/* pilot form */
+.pilot-form-box{
+  border:1.5px solid rgba(0,0,0,0.12);
+  border-radius:8px;padding:36px;background:#fff;
+  max-width:400px;
+}
+.pf-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.pf-title{font-size:18px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px}
+.pf-sub{font-size:12px;color:var(--gray);margin-bottom:24px}
+.pf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.pf-field{display:flex;flex-direction:column;gap:5px}
+.pf-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray)}
+.pf-input,.pf-select{
+  border:1.5px solid rgba(0,0,0,0.12);border-radius:5px;
+  padding:10px 13px;font-size:13px;font-family:inherit;
+  color:var(--black);background:#fff;outline:none;
+  transition:border-color 0.2s;
+}
+.pf-input:focus,.pf-select:focus{border-color:var(--black)}
+.pf-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.pf-btn{
+  width:100%;background:var(--black);color:var(--white);
+  border:none;border-radius:5px;padding:14px;
+  font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:opacity 0.2s;margin-top:4px;
+}
+.pf-btn:hover{opacity:0.8}
+.pf-btn::after{content:'→'}
+
+/* ── FOOTER ── */
+footer{background:var(--black);color:var(--white);padding:72px 40px 40px}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:72px;letter-spacing:0.04em;color:var(--white);line-height:1;margin-bottom:8px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.06em}
+.footer-col-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-contact{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:8px}
+.footer-contact a{color:rgba(255,255,255,0.7);text-decoration:none}
+.footer-contact a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.3)}
+.footer-badge{font-size:10px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:6px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:80px 20px 48px;gap:36px}
+  .booking-widget{margin:0 auto;max-width:100%}
+  .services-header{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .srv-card:nth-child(1){grid-column:1/3;grid-row:1;min-height:220px}
+  .srv-card:nth-child(2){grid-column:1;grid-row:2}
+  .srv-card:nth-child(3){grid-column:2;grid-row:2}
+  .srv-card:nth-child(4){grid-column:1;grid-row:3}
+  .srv-card:nth-child(5){grid-column:2;grid-row:3}
+  .srv-card:nth-child(6){grid-column:1/3;grid-row:4}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-card:nth-child(2){border-right:none}
+  .shield-inner,.pilot-inner{grid-template-columns:1fr}
+  .shield-form-box,.pilot-form-box{max-width:100%}
+  .shield-feats{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-brand{font-size:48px}
+  footer{padding:48px 20px 28px}
+  .services-section,.why-section,.shield-section,.pilot-section{padding:72px 20px}
+}
+
+/* fade in */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-text>*{animation:fadeUp 0.6s ease both}
+.hero-text>*:nth-child(1){animation-delay:.05s}
+.hero-text>*:nth-child(2){animation-delay:.12s}
+.hero-text>*:nth-child(3){animation-delay:.2s}
+.hero-text>*:nth-child(4){animation-delay:.28s}
+.hero-text>*:nth-child(5){animation-delay:.36s}
+.booking-widget{animation:fadeUp 0.7s ease 0.2s both}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">BEEZY</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#shield">Beezy Shield</a></li>
+    <li><a href="#pilot">Pilot</a></li>
+    <li><a href="#investors">Investors</a></li>
+  </ul>
+  <a class="nav-book" href="#booking">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="breadcrumb">Home Services · Koramangala · <span>2026</span></p>
+    <h1 class="hero-h1">Your trusted<br>partner for <span class="highlight">home</span><br>solutions.</h1>
+    <p class="hero-sub">One app. Every home service. Verified pros at your door in under 60 minutes — delivered with speed &amp; care across Bengaluru.</p>
+    <div class="hero-ctas">
+      <a href="#booking" class="btn-black">Book a Pro ↗</a>
+      <a href="#shield" class="btn-outline-dark">Investor Deck ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-val">₹1.5L Cr</div>
+        <div class="hstat-label">Market size</div>
+      </div>
+      <div>
+        <div class="hstat-val">60 min</div>
+        <div class="hstat-label">Response SLA</div>
+      </div>
+      <div>
+        <div class="hstat-val">2M+</div>
+        <div class="hstat-label">Apartments, Bengaluru</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking widget -->
+  <div class="booking-widget" id="booking">
+    <div class="widget-header">
+      <div class="widget-steps">Book a Pro · Step 1/2</div>
+      <div class="widget-live">Live</div>
+    </div>
+    <div class="widget-field">
+      <label>Service</label>
+      <select class="widget-select">
+        <option>Emergency Plumbing – LIVE</option>
+        <option>Electrical Repair</option>
+        <option>Deep Cleaning</option>
+        <option>AC Service</option>
+        <option>Pest Control</option>
+      </select>
+    </div>
+    <div class="widget-date-row">
+      <div class="widget-field">
+        <label>Date</label>
+        <input class="widget-input" type="date" value="2026-04-22">
+      </div>
+      <div class="widget-field">
+        <label>Slot</label>
+        <select class="widget-select">
+          <option>Morning (8–11 AM)</option>
+          <option>Afternoon (12–3 PM)</option>
+          <option>Evening (4–7 PM)</option>
+        </select>
+      </div>
+    </div>
+    <div class="widget-field">
+      <label>Your Apartment / Area</label>
+      <input class="widget-input" type="text" placeholder="e.g. Prestige Shantiniketan, Koramangala">
+    </div>
+    <button class="widget-btn" onclick="this.textContent='✓ Booking confirmed! We\'ll call you shortly.';this.style.background='#22c55e'">Continue</button>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Emergency Plumbing <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Verified Pros <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">60-Min SLA <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Beezy Shield™ <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Transparent Pricing <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Koramangala → HSR <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Emergency Plumbing <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Verified Pros <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">60-Min SLA <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Beezy Shield™ <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Transparent Pricing <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Koramangala → HSR <span class="ticker-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">02 · Services</div>
+      <h2 class="services-h2">One platform.<br>Every home need.</h2>
+    </div>
+    <div class="services-right">
+      <p class="services-desc">We launch with emergency plumbing — the hardest wedge to crack — and expand service-by-service, only when NPS is above 75. No shortcuts on quality.</p>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <!-- Card 1 – large -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);display:flex;align-items:center;justify-content:center;min-height:340px">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><path d="M28 52l8-8m0 0l6-14 8-8m-14 22l-6 6m20-28l-8 8" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/><circle cx="52" cy="28" r="4" fill="rgba(255,255,255,0.2)"/></svg>
+      </div>
+      <div class="srv-badge">Live</div>
+      <div class="srv-launch">Day 1</div>
+      <div class="srv-overlay">
+        <div class="srv-tag">ITCH Score 83</div>
+        <div class="srv-name">Emergency Plumbing</div>
+        <div class="srv-desc">60-min response, ITI-certified plumbers</div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#222 0%,#333 100%);display:flex;align-items:center;justify-content:center;min-height:160px">
+        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 8v4M24 36v4M8 24h4M36 24h4M13.5 13.5l2.8 2.8M31.7 31.7l2.8 2.8M13.5 34.5l2.8-2.8M31.7 16.3l2.8-2.8M24 18a6 6 0 100 12 6 6 0 000-12z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="srv-launch">Month 3</div>
+      <div class="srv-overlay">
+        <div class="srv-name">Electricians</div>
+        <div class="srv-desc">Wiring, fittings, safety checks</div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1e1e1e 0%,#2a2a2a 100%);display:flex;align-items:center;justify-content:center;min-height:160px">
+        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 32c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/><rect x="20" y="12" width="8" height="12" rx="2" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/></svg>
+      </div>
+      <div class="srv-launch">Month 6</div>
+      <div class="srv-overlay">
+        <div class="srv-name">Deep Cleaning</div>
+        <div class="srv-desc">Full home, kitchen, bathroom deep cleans</div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#252525 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;min-height:160px">
+        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="20" r="6" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/><path d="M12 38c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="srv-launch">Shield Add-on</div>
+      <div class="srv-overlay">
+        <div class="srv-name">Elder Care Companionship</div>
+        <div class="srv-desc">Trained, background-checked companions</div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#202020 0%,#2e2e2e 100%);display:flex;align-items:center;justify-content:center;min-height:160px">
+        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="14" width="20" height="20" rx="3" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/><path d="M20 24h8M24 20v8" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="srv-launch">Coming Soon</div>
+      <div class="srv-overlay">
+        <div class="srv-name">AC Service</div>
+        <div class="srv-desc">AC servicing, coils, gas refill, diagnosis</div>
+      </div>
+    </div>
+    <!-- Card 6 – wide bottom -->
+    <div class="srv-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1c1c1c 0%,#292929 100%);display:flex;align-items:center;justify-content:center;min-height:160px">
+        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 28c0-4.4 3.6-8 8-8s8 3.6 8 8M24 12v4M12 16l3 3M36 16l-3 3" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/><path d="M20 32c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="srv-launch">Shield Add-on</div>
+      <div class="srv-overlay">
+        <div class="srv-name">Pest Control</div>
+        <div class="srv-desc">Kid &amp; pet friendly, 90-day warranty</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BEEZY -->
+<section class="why-section">
+  <div class="why-header">
+    <div class="section-label" style="margin-bottom:12px">03 · Why Beezy</div>
+    <h2 class="why-h2">The anti-urban-company.<br>Built for trust, not for scale.</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⏱</div>
+      <div class="why-val">60 MIN</div>
+      <div class="why-title">Response Time</div>
+      <div class="why-desc">Guaranteed doorstep dispatch — or your next booking is free.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✓</div>
+      <div class="why-val">100%</div>
+      <div class="why-title">Verified Arrive</div>
+      <div class="why-desc">Background + ITI-certified. Every provider, every time.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⊕</div>
+      <div class="why-val">ONE APP</div>
+      <div class="why-title">Platform</div>
+      <div class="why-desc">Plumbers to painters. Every service, one trusted home.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">₹</div>
+      <div class="why-val">UPFRONT</div>
+      <div class="why-title">Pricing</div>
+      <div class="why-desc">Zero surprise bills. You see the price before we book.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEEZY SHIELD -->
+<section class="shield-section" id="shield">
+  <div class="shield-inner">
+    <div>
+      <div class="shield-eyebrow">04 · Beezy Shield™</div>
+      <h2 class="shield-h2">A home<br>that takes<br>care of itself.</h2>
+      <p class="shield-desc">One annual plan replaces every ad-hoc repair call. Bundled visits, guaranteed same-day emergency responses, predictable price — for the way Bengaluru actually lives.</p>
+      <div class="shield-price">₹2,999</div>
+      <div class="shield-price-sub">/ Year</div>
+      <div class="shield-feats">
+        <div class="shield-feat">4 plumber visits</div>
+        <div class="shield-feat">3 electrical safety checks</div>
+        <div class="shield-feat">1 annual deep clean</div>
+        <div class="shield-feat">Same-day emergency guarantee</div>
+        <div class="shield-feat">3× upsell credits on add-ons</div>
+        <div class="shield-feat">Priority scheduling 24/7</div>
+      </div>
+    </div>
+    <div class="shield-form-box">
+      <div class="shield-form-title">Lock your price.</div>
+      <div class="shield-form-sub">Reserve now — no charge until Beezy Shield goes live in Q3 2026.</div>
+      <div class="sf-field">
+        <label class="sf-label">Full Name</label>
+        <input class="sf-input" type="text" placeholder="Your name">
+      </div>
+      <div class="sf-field">
+        <label class="sf-label">Phone</label>
+        <input class="sf-input" type="tel" placeholder="+91 98765 43210">
+      </div>
+      <div class="sf-field">
+        <label class="sf-label">Email (optional)</label>
+        <input class="sf-input" type="email" placeholder="you@email.com">
+      </div>
+      <div class="sf-field">
+        <label class="sf-label">Home address</label>
+        <input class="sf-input" type="text" placeholder="Apt / Society, Area, Bengaluru">
+      </div>
+      <button class="sf-btn" onclick="this.textContent='✓ Reserved! We\'ll confirm shortly.';this.style.background='#22c55e';this.style.color='#fff'">Reserve My Shield</button>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT -->
+<section class="pilot-section" id="pilot">
+  <div class="pilot-inner">
+    <div>
+      <div class="pilot-eyebrow">05 · Pilot Program</div>
+      <h2 class="pilot-h2">Free for the<br>first 50 homes<br>in Koramangala.</h2>
+      <p class="pilot-desc">We're running a 30-day live pilot. Zero cost, zero commitment — help us shape the most trusted home services platform in India.</p>
+      <ul class="pilot-perks">
+        <li>Priority Plumbing dispatch</li>
+        <li>Free service reviews every month</li>
+        <li>Direct access to the founding team</li>
+        <li>Lifetime Shield discount for founding members</li>
+      </ul>
+    </div>
+    <div class="pilot-form-box">
+      <div class="pf-eyebrow">30-Day Free Pilot · Koramangala First</div>
+      <div class="pf-title">Join the Beezy Pilot.</div>
+      <div class="pf-sub">First 50 homes get complimentary emergency plumbing + a priority slot for Beezy Shield™ at launch. No card, no catch.</div>
+      <div class="pf-row">
+        <div class="pf-field">
+          <label class="pf-label">First Name</label>
+          <input class="pf-input" type="text" placeholder="Rahul">
+        </div>
+        <div class="pf-field">
+          <label class="pf-label">Last Name</label>
+          <input class="pf-input" type="text" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-field">
+          <label class="pf-label">Phone</label>
+          <input class="pf-input" type="tel" placeholder="+91 98765 43210">
+        </div>
+        <div class="pf-field">
+          <label class="pf-label">Email</label>
+          <input class="pf-input" type="email" placeholder="you@email.com">
+        </div>
+      </div>
+      <div class="pf-field" style="margin-bottom:12px">
+        <label class="pf-label">Apartment / Society Name</label>
+        <input class="pf-input" type="text" placeholder="e.g. Prestige Shantiniketan">
+      </div>
+      <div class="pf-field" style="margin-bottom:12px">
+        <label class="pf-label">Service Needed</label>
+        <select class="pf-select" style="width:100%">
+          <option>Emergency Plumbing</option>
+          <option>Electrical Repair</option>
+          <option>Deep Cleaning</option>
+          <option>AC Service</option>
+        </select>
+      </div>
+      <button class="pf-btn" onclick="this.textContent='✓ Pilot spot claimed!';this.style.background='#22c55e'">Claim My Pilot Spot</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="investors">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">BEEZY.</div>
+      <div class="footer-tagline">Bengaluru, Karnataka · 2026</div>
+    </div>
+    <div>
+      <div class="footer-col-label">Contact Us</div>
+      <div class="footer-contact"><a href="mailto:beezyassistance@gmail.com">beezyassistance@gmail.com</a></div>
+      <div class="footer-contact">Bengaluru, Karnataka</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Navigate</div>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#shield">Beezy Shield</a>
+      <a href="#pilot">Pilot</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Beezy Home Services · Built with love in Bengaluru</div>
+    <div class="footer-badge">Made with Emergent</div>
+  </div>
+</footer>
+
+</body>
+</html>
